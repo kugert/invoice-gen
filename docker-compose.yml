@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: invoice-gen-back
+    ports:
+      - "8000:8000"
+    networks:
+      - invoice-gen
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: invoive-gen-front
+    ports:
+      - "3000:80"  # Nginx serving on port 80 internally
+    depends_on:
+      - backend
+    networks:
+      - invoice-gen
+
+networks:
+  invoice-gen:
+    driver: bridge
+
