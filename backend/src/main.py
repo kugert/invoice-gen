@@ -14,4 +14,4 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return "Alive"
+    return {"status": "ok"}
