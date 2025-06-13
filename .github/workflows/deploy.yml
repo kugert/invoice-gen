@@ -28,7 +28,7 @@ jobs:
       - name: Build and push
         run: |
           cd ${{ matrix.service }}
-          docker build -t yourdockerhub/${{ matrix.service }}:latest .
-          docker push yourdockerhub/${{ matrix.service }}:latest
+          docker build -t ghcr.io/kugert/${{ matrix.service }}:latest .
+          docker push ghcr.io/kugert/${{ matrix.service }}:latest
         if: contains(github.event.head_commit.message, matrix.service)
 
