@@ -15,4 +15,3 @@ app.add_middleware(
 @app.get("/")
 def root():
     return "alive"
-
